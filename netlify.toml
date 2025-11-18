@@ -13,7 +13,8 @@
   to = "/index.html"
   status = 200
 
-[headers]
+# Netlify expects headers as an array of tables ([[headers]])
+[[headers]]
   for = "/*"
 
   [headers.values]

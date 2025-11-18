@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -300,7 +299,12 @@ const Contact = () => {
                 <input type="checkbox" required />
                 <span style={{fontSize: '0.9rem', color: 'var(--gray-600)'}}>
                   Îmi dau acordul pentru prelucrarea datelor personale conform{' '}
-                  <a href="#" style={{color: 'var(--primary-blue)'}}>politicii de confidențialitate</a>
+                  <a
+                    href="/politica-confidentialitate"
+                    style={{color: 'var(--primary-blue)', textDecoration: 'underline'}}
+                  >
+                    politicii de confidențialitate
+                  </a>
                 </span>
               </div>
 
