@@ -37,25 +37,19 @@ const Home = () => {
       <main>
         {/* HERO – NEW LAYOUT WITH SPLIT COPY / IMAGE */}
         <section
-          className="home-hero"
+          className="home-hero hero-section"
           data-reveal="up"
           data-reveal-once="true"
         >
           <div className="home-shell">
             <div className="home-hero-inner">
               <div className="home-hero-copy">
-                <div className="home-hero-eyebrow">
-                  <span className="home-hero-eyebrow-dot" />
-                  <span>Centru pentru copii în Arad</span>
-                </div>
-
                 <h1 className="home-hero-title">
-                  Ringabell, locul copiilor fericiți
+                  Ringabell, locul unde copiii vin cu drag
                 </h1>
 
                 <p className="home-hero-subtitle">
-                  Centru modern pentru copii în Arad, cu activități colorate,
-                  sigure și pline de bucurie în fiecare zi.
+                  Un loc în care copilul tău crește cu <span className="home-hero-highlight">zâmbetul</span> pe buze.
                 </p>
 
                 <div className="home-hero-actions">
@@ -91,42 +85,42 @@ const Home = () => {
                   <img
                     src="/childrenpart/unicorn.png"
                     alt="Unicorn"
-                    className="home-hero-icon home-hero-icon--unicorn friendly-unicorn"
+                    className="home-hero-icon hero-float--L1 friendly-unicorn"
                   />
                   <img
                     src="/childrenpart/soare test .png"
                     alt="Soare"
-                    className="home-hero-icon home-hero-icon--sun friendly-sun"
+                    className="home-hero-icon hero-float--R1 friendly-sun"
                   />
                   <img
                     src="/childrenpart/inima.png"
                     alt="Inimă"
-                    className="home-hero-icon home-hero-icon--heart friendly-heart"
+                    className="home-hero-icon hero-float--L2 friendly-heart"
                   />
                   <img
                     src="/childrenpart/fluture.png"
                     alt="Fluture"
-                    className="home-hero-icon home-hero-icon--butterfly friendly-butterfly"
+                    className="home-hero-icon hero-float--R2 friendly-butterfly"
                   />
                   <img
                     src="/childrenpart/balon cu aer cald.png"
                     alt="Balon cu aer cald"
-                    className="home-hero-icon home-hero-icon--balloon friendly-balloon"
+                    className="home-hero-icon hero-float--L3 friendly-balloon"
                   />
                   <img
                     src="/childrenpart/curcubeu peste nori.png"
                     alt="Curcubeu"
-                    className="home-hero-icon home-hero-icon--rainbow friendly-moon"
+                    className="home-hero-icon hero-float--R3 friendly-moon"
                   />
                   <img
-                    src="/childrenpart/pisica.png"
-                    alt="Pisică"
-                    className="home-hero-icon home-hero-icon--cat friendly-cat"
+                    src="/childrenpart/dinozaur.png"
+                    alt="Dinozaur"
+                    className="home-hero-icon hero-float--B1 friendly-dino"
                   />
                   <img
-                    src="/childrenpart/iepuras.png"
-                    alt="Iepuraș"
-                    className="home-hero-icon home-hero-icon--bunny friendly-bunny"
+                    src="/childrenpart/camion.png"
+                    alt="Camion"
+                    className="home-hero-icon hero-float--B3 friendly-truck"
                   />
                 </div>
               </div>
@@ -179,7 +173,7 @@ const Home = () => {
                   De ce să ne alegeți pe noi?
                 </h2>
               </div>
-              <p className="home-section-note">
+              <p className="home-section-note mobile-visible">
                 Un spațiu gândit pentru copii și părinți deopotrivă: activități
                 clare, joacă multă și proceduri de siguranță bine puse la punct.
               </p>
@@ -217,10 +211,24 @@ const Home = () => {
                     </p>
                   </article>
 
-                  {/* Siguranță – slides in again from the left on scroll */}
+                  {/* Creativitate – slides in from the left on scroll */}
                   <article
                     ref={(el) => (whyCardsRef.current[2] = el)}
                     className="home-feature-card js-why-card js-why-card--left"
+                  >
+                    <div className="home-feature-icon">Creativitate</div>
+                    <h3 className="home-feature-title">
+                      Creativitate fără limite
+                    </h3>
+                    <p className="home-feature-text">
+                      Activități artistice și experiențe interactive care stimulează imaginația și exprimarea liberă.
+                    </p>
+                  </article>
+
+                  {/* Siguranță – slides in from the right on scroll */}
+                  <article
+                    ref={(el) => (whyCardsRef.current[3] = el)}
+                    className="home-feature-card js-why-card js-why-card--right"
                   >
                     <div className="home-feature-icon">Siguranță</div>
                     <h3 className="home-feature-title">
@@ -242,17 +250,66 @@ const Home = () => {
                     className="home-why-card home-why-card--1"
                   />
                   <img
-                    src="/childrenpart/dinozaur.png"
-                    alt="Dinozaur"
+                    src="/childrenpart/inima.png"
+                    alt="Inimă"
                     className="home-why-card home-why-card--2"
                   />
                   <img
-                    src="/childrenpart/inima.png"
-                    alt="Inimă"
+                    src="/childrenpart/dinozaur.png"
+                    alt="Dinozaur"
                     className="home-why-card home-why-card--3"
                   />
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* O ZI LA RINGABELL – DAILY ROUTINE */}
+        <section className="home-section home-day">
+          <div className="home-shell">
+            <div className="home-section-heading home-day-heading">
+              <div>
+                <p className="home-section-kicker">Rutina noastră</p>
+                <h2 className="home-section-title">O zi la Ringabell</h2>
+              </div>
+              <p className="home-section-note mobile-visible">
+                Program gândit să le ofere copiilor un echilibru sănătos între masă, joacă, învățare și odihnă.
+              </p>
+            </div>
+
+            <div className="home-day-grid">
+              <article className="home-day-item">
+                <div className="home-day-icon">🥣</div>
+                <h3 className="home-day-title">Mic dejun & gustări</h3>
+                <p className="home-day-text">
+                  Începem ziua cu un mic dejun echilibrat și gustări sănătoase, adaptate vârstei copiilor.
+                </p>
+              </article>
+
+              <article className="home-day-item">
+                <div className="home-day-icon">🎨</div>
+                <h3 className="home-day-title">Activități educative</h3>
+                <p className="home-day-text">
+                  Jocuri, povești și exerciții care dezvoltă limbajul, creativitatea și autonomia.
+                </p>
+              </article>
+
+              <article className="home-day-item">
+                <div className="home-day-icon">😴</div>
+                <h3 className="home-day-title">Timp de odihnă</h3>
+                <p className="home-day-text">
+                  Un moment liniștit pentru somn sau relaxare, într-un spațiu sigur și confortabil.
+                </p>
+              </article>
+
+              <article className="home-day-item">
+                <div className="home-day-icon">🧸</div>
+                <h3 className="home-day-title">Joacă liberă</h3>
+                <p className="home-day-text">
+                  Copiii explorează, construiesc prietenii și învață să împartă prin joacă liberă supravegheată.
+                </p>
+              </article>
             </div>
           </div>
         </section>
@@ -271,7 +328,7 @@ const Home = () => {
                   Activități care îi fac fericiți
                 </h2>
               </div>
-              <p className="home-section-note">
+              <p className="home-section-note mobile-visible">
                 De la experimente științifice pe înțelesul lor, până la joacă
                 afară și ateliere de creație, fiecare zi are un ritm colorat.
               </p>
@@ -280,19 +337,19 @@ const Home = () => {
             <div className="home-activities-grid">
               <article className="home-activity-main">
                 <img
-                  src="/galerie/chemical-experiment-on-kids-birthday-party-2024-09-16-16-13-21-utc-min.jpg"
-                  alt="Experimente pentru copii"
+                  src="/galerie/preschool-boy-playing-with-colorful-toy-rocket-2025-10-09-10-35-49-utc.jpg"
+                  alt="Băiat jucându-se cu rachetă colorată"
                 />
                 <div className="home-activity-main-body">
                   <span className="home-activity-badge">
                     Activitatea zilei
                   </span>
                   <h3 className="home-activity-title">
-                    Știință pe înțelesul copiilor
+                    Joacă și explorare
                   </h3>
                   <p className="home-activity-text">
-                    Experimente sigure și haioase, prin care cei mici învață
-                    lucruri noi în timp ce se distrează.
+                    Activități distractive și creative care stimulează imaginația
+                    și dezvoltarea motorie a copiilor.
                   </p>
                   <Link
                     to="/servicii"
@@ -317,7 +374,7 @@ const Home = () => {
 
                 <article className="home-activity-mini">
                   <img
-                    src="/galerie/portrait-of-a-teacher-and-kids-in-a-classroom-wher-2025-01-11-01-29-20-utc-min.jpg"
+                    src="/galerie/portrait-of-preschool-children-and-the-teacher-2024-11-28-03-52-26-utc-min.jpg"
                     alt="Povești și joacă de rol"
                   />
                   <div>
@@ -355,7 +412,7 @@ const Home = () => {
                   Echipa care are grijă de copii
                 </h2>
               </div>
-              <p className="home-section-note">
+              <p className="home-section-note mobile-visible">
                 O echipă de profesioniști care știe să combine joaca, educația
                 și atenția pentru fiecare copil.
               </p>
@@ -446,7 +503,7 @@ const Home = () => {
                   Câteva dintre momentele noastre
                 </h2>
               </div>
-              <p className="home-section-note">
+              <p className="home-section-note mobile-visible">
                 Imagini reale din activitățile zilnice – zâmbete, joacă și timp
                 de calitate petrecut împreună.
               </p>
@@ -456,43 +513,54 @@ const Home = () => {
               <div className="home-gallery-grid">
                 <figure className="home-gallery-item">
                   <img
-                    src="/galerie/cheerful-teacher-and-interracial-kids-looking-at-c-2024-11-08-18-59-50-utc-min.jpg"
-                    alt="Copii fericiți alături de educatoare"
-                  />
-                </figure>
-                <figure className="home-gallery-item home-gallery-item--tall">
-                  <img
-                    src="/childrenpart/dinozaur.png"
-                    alt="Învățare distractivă"
-                  />
-                </figure>
-                <figure className="home-gallery-item">
-                  <img
-                    src="/galerie/mother-sitting-with-two-children-having-discussio-2025-04-04-17-34-34-utc-min.jpg"
+                    src="/galerie/chemical-experiment-on-kids-birthday-party-2024-09-16-16-13-21-utc-min.jpg"
                     alt="Moment de familie"
                   />
                 </figure>
                 <figure className="home-gallery-item">
                   <img
-                    src="/galerie/nursery-children-having-fun-and-playing-with-teach-2025-03-14-21-42-40-utc-min.jpg"
+                    src="/galerie/children-connecting-jigsaw-puzzle-pieces-in-a-kids-2025-02-11-02-09-26-utc.jpg"
                     alt="Joacă în grup"
                   />
                 </figure>
+                <figure className="home-gallery-item">
+                  <img
+                    src="/galerie/children-proudly-displaying-potted-plants-outdoors-2025-04-04-11-20-14-utc.jpg"
+                    alt="Copii fericiți alături de educatoare"
+                  />
+                </figure>
+              </div>
+
+              {/* Floating elements in background */}
+              <div className="home-gallery-floating" aria-hidden="true">
+                <img
+                  src="/childrenpart/unicorn.png"
+                  alt="Unicorn"
+                  className="home-gallery-float home-gallery-float--1"
+                />
+                <img
+                  src="/childrenpart/inima.png"
+                  alt="Inimă"
+                  className="home-gallery-float home-gallery-float--2"
+                />
+                <img
+                  src="/childrenpart/fluture.png"
+                  alt="Fluture"
+                  className="home-gallery-float home-gallery-float--3"
+                />
+                <img
+                  src="/childrenpart/dinozaur.png"
+                  alt="Dinozaur"
+                  className="home-gallery-float home-gallery-float--4"
+                />
+                <img
+                  src="/childrenpart/urs.png"
+                  alt="Urs"
+                  className="home-gallery-float home-gallery-float--5"
+                />
               </div>
             </div>
 
-            <div className="home-gallery-caption-row">
-              <p className="home-gallery-caption">
-                Fiecare fotografie surprinde câte o poveste mică: un joc
-                nou, o prietenie, un moment de descoperire.
-              </p>
-              <Link
-                to="/galerie"
-                className="home-button home-button--ghost home-button--small"
-              >
-                Vezi galeria completă
-              </Link>
-            </div>
           </div>
         </section>
 
@@ -510,7 +578,7 @@ const Home = () => {
                   Ce oferim la Ringabell
                 </h2>
               </div>
-              <p className="home-section-note">
+              <p className="home-section-note mobile-visible">
                 Programe adaptate vârstei, pentru grădiniță, after school și
                 evenimente speciale pentru întreaga familie.
               </p>
@@ -518,7 +586,7 @@ const Home = () => {
 
             <div className="home-services-grid">
               <article className="home-service-card">
-                <div className="home-service-icon" aria-hidden="true">KID</div>
+                <div className="home-service-icon" aria-hidden="true"></div>
                 <h3 className="home-service-title">Grădiniță cu joacă și povești</h3>
                 <p className="home-service-text">
                   Primii ani petrecuți într-un loc cald și colorat, cu rutine
@@ -540,7 +608,7 @@ const Home = () => {
               </article>
 
               <article className="home-service-card">
-                <div className="home-service-icon" aria-hidden="true">SCO</div>
+                <div className="home-service-icon" aria-hidden="true"></div>
                 <h3 className="home-service-title">After school cu liniște și joacă</h3>
                 <p className="home-service-text">
                   După ore, copiii își fac temele într-un ritm blând, apoi
@@ -562,7 +630,7 @@ const Home = () => {
               </article>
 
               <article className="home-service-card">
-                <div className="home-service-icon" aria-hidden="true">FUN</div>
+                <div className="home-service-icon" aria-hidden="true"></div>
                 <h3 className="home-service-title">Petreceri & evenimente colorate</h3>
                 <p className="home-service-text">
                   Zile de naștere, seri tematice și întâlniri speciale pentru
@@ -598,7 +666,7 @@ const Home = () => {
                 <p className="home-section-kicker">Părinți</p>
                 <h2 className="home-section-title">Ce spun părinții</h2>
               </div>
-              <p className="home-section-note">
+              <p className="home-section-note mobile-visible">
                 Feedback real de la familiile care ne trec zilnic pragul și ne
                 încredințează copiii.
               </p>
@@ -607,8 +675,7 @@ const Home = () => {
             <div className="home-testimonials-layout">
               <article className="home-testimonial-main">
                 <p>
-                  Copilul nostru vine acasă în fiecare zi cu povești frumoase și
-                  mult entuziasm despre ce a făcut la Ringabell.
+                  O grădiniță absolut impecabilă cu un personal foarte bine pregătit si responsabil... Suntem foarte mulțumite si cu siguranță vă recomandăm cu mult drag..💝💝💝
                 </p>
                 <div className="home-testimonial-author">
                   <div className="home-testimonial-avatar">
@@ -618,8 +685,8 @@ const Home = () => {
                     />
                   </div>
                   <div className="home-testimonial-meta">
-                    <h4>Maria Popescu</h4>
-                    <span>Părinte Ringabell</span>
+                    <h4>Florina Anny</h4>
+                    <span>Părinte</span>
                   </div>
                 </div>
               </article>
@@ -627,18 +694,16 @@ const Home = () => {
               <div className="home-testimonial-side">
                 <article className="home-testimonial-side-card">
                   <p>
-                    Echipa este atentă, calmă și comunică des cu noi. Ne simțim
-                    în siguranță când copilul este aici.
+                    Fiica mea merge la grădiniță aici, un loc frumos, cu personal foarte amabil, un mediu prietenos și sigur. Îi place mult și este mereu fericită să vină.
                   </p>
-                  <h4>Ionuț Dumitrescu</h4>
+                  <h4>Cosmin Levarda</h4>
                 </article>
 
                 <article className="home-testimonial-side-card">
                   <p>
-                    Spațiul este curat, colorat și bine organizat. Copiii se
-                    simt bine primiți încă de la intrare.
+                    O gradinita frumoasa,curata,foarte bine dotata,cu un personal responsabil care le ofera copiilor o educatie exemplara.
                   </p>
-                  <h4>Elena Radu</h4>
+                  <h4>Pascu Vasile-Gelu</h4>
                 </article>
               </div>
             </div>
