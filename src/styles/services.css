@@ -522,6 +522,11 @@
 
 
 @media (max-width: 768px) {
+  .services-hero {
+    min-height: 800px;
+    overflow: visible;
+  }
+
   .services-hero-inner {
     grid-template-columns: 1fr;
     text-align: center;

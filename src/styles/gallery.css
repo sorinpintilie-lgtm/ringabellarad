@@ -1182,6 +1182,11 @@ p {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .gallery-hero {
+    min-height: 800px;
+    overflow: visible;
+  }
+
   .gallery-hero-inner {
     grid-template-columns: 1fr;
     text-align: center;

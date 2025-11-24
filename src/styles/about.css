@@ -312,6 +312,8 @@
   .about-hero {
     padding: 4rem 0 3rem;
     min-height: auto;
+    min-height: 800px;
+    overflow: visible;
   }
 
   .about-hero-inner {
