@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 /**
  * ScrollRevealProvider
@@ -19,6 +20,8 @@ import { useEffect } from 'react';
  *   .reveal, .reveal-visible, .reveal-left, .reveal-right, etc.
  */
 const ScrollRevealProvider = () => {
+  const location = useLocation();
+
   useEffect(() => {
     if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
       return;
@@ -67,7 +70,7 @@ const ScrollRevealProvider = () => {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [location.pathname]);
 
   return null;
 };

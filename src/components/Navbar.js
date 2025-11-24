@@ -35,47 +35,45 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className={`navbar ${isMenuOpen ? 'navbar--open' : ''}`}>
+    <>
+    <nav className="navbar">
       <div className="nav-container">
         <Link
           to="/"
           className="nav-logo"
-          onClick={closeMenu}
         >
           Ringabell
         </Link>
 
-        {/* Desktop menu + colorful mobile drawer content */}
-        <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+        {/* Desktop inline links */}
+        <div className="nav-links">
           {navItems.map((item) => (
-            <li key={item.path}>
-              <Link
-                to={item.path}
-                className={`nav-link ${
-                  location.pathname === item.path ? 'active' : ''
-                }`}
-                onClick={closeMenu}
-              >
-                {item.name}
-              </Link>
-            </li>
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`nav-link ${
+                location.pathname === item.path ? 'active' : ''
+              }${item.path === '/contact' ? ' nav-link--cta' : ''}`}
+              onClick={closeMenu}
+            >
+              {item.name}
+            </Link>
           ))}
-        </ul>
+        </div>
 
         {/* Mobile hamburger button */}
         <button
-          type="button"
           className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}
           onClick={toggleMenu}
-          aria-label="Deschide meniul de navigare"
+          aria-label="Deschide meniul"
           aria-expanded={isMenuOpen}
+          aria-controls="primary-navigation"
         >
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
         </button>
       </div>
-
 
       {/* Decorative floating bubbles to keep it kid-friendly */}
       <div className="nav-decorations">
@@ -84,6 +82,38 @@ const Navbar = () => {
         <div className="nav-bubble bubble-3"></div>
       </div>
     </nav>
+
+    {/* Mobile dropdown menu */}
+    <div className={`nav-menu ${isMenuOpen ? 'open' : ''}`} id="primary-navigation">
+      <button
+        className="nav-close-btn"
+        onClick={closeMenu}
+        aria-label="Închide meniul"
+      >
+        ✕
+      </button>
+      <div className="nav-links">
+        {navItems.map((item) => (
+          <Link
+            key={item.path}
+            to={item.path}
+            className={`nav-link ${
+              location.pathname === item.path ? 'active' : ''
+            }${item.path === '/contact' ? ' nav-link--cta' : ''}`}
+            onClick={closeMenu}
+          >
+            {item.name}
+          </Link>
+        ))}
+      </div>
+    </div>
+
+    {/* Backdrop */}
+    <div
+      className={`nav-backdrop ${isMenuOpen ? 'active' : ''}`}
+      onClick={closeMenu}
+    />
+    </>
   );
 };
 

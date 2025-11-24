@@ -1,0 +1,64 @@
+/* Contact page scoped styles */
+.contact {
+  background: var(--gray-50);
+  color: var(--gray-800);
+  min-height: 100vh;
+  overflow-x: hidden; /* prevent any horizontal overflow from absolute or blurred elements */
+}
+
+.contact-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Generic section layout */
+.contact-section {
+  padding: 4rem 0;
+}
+
+/* Tighter vertical spacing for sections */
+.contact-section--tight {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.contact-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-section--tight .contact-section-heading {
+  margin-bottom: 1.75rem;
+}
+
+.contact-section-kicker {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-blue);
+}
+
+.contact-section-title {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.contact-section-note {
+  max-width: 360px;
+  font-size: 0.95rem;
+  color: var(--gray-600);
+}
+
+/* Rest of contact styles can be added here */
+
+@media (max-width: 767px) {
+  .mobile-two-lines span {
+    display: block;
+  }
+}

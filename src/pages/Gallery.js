@@ -1,356 +1,441 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/gallery.css';
 
 const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
   const galleryImages = [
     {
-      src: "/galerie/cheerful-teacher-and-interracial-kids-looking-at-c-2024-11-08-18-59-50-utc-min.jpg",
-      alt: "Copiii și învățătoarea fericită",
-      category: "Activități educative"
-    },
-    {
       src: "/galerie/nursery-children-having-fun-and-playing-with-teach-2025-03-14-21-42-40-utc-min.jpg",
+      thumbSrc: "/galerie/nursery-children-having-fun-and-playing-with-teach-2025-03-14-21-42-40-utc-min - Copy.jpg",
       alt: "Copiii se joacă cu învățătoarea",
       category: "Joc și interacțiune"
     },
     {
       src: "/galerie/portrait-of-preschool-children-and-the-teacher-2024-11-28-03-52-26-utc-min.jpg",
+      thumbSrc: "/galerie/portrait-of-preschool-children-and-the-teacher-2024-11-28-03-52-26-utc-min - Copy.jpg",
       alt: "Portret de grup în grădiniță",
       category: "Echipă și comunitate"
     },
     {
-      src: "/galerie/portrait-of-a-teacher-and-kids-in-a-classroom-wher-2025-01-11-01-29-20-utc-min.jpg",
-      alt: "Copiii în sala de clasă",
-      category: "Mediu de învățare"
-    },
-    {
       src: "/galerie/learning-conception-new-words-children-in-kinder-2025-08-10-10-08-27-utc-min.JPG",
+      thumbSrc: "/galerie/learning-conception-new-words-children-in-kinder-2025-08-10-10-08-27-utc-min - Copy.JPG",
       alt: "Copiii învață cuvinte noi",
       category: "Proces educativ"
     },
     {
       src: "/galerie/mother-sitting-with-two-children-having-discussio-2025-04-04-17-34-34-utc-min.jpg",
+      thumbSrc: "/galerie/mother-sitting-with-two-children-having-discussio-2025-04-04-17-34-34-utc-min - Copy.jpg",
       alt: "Părinți și copii în discuție",
       category: "Comunicare cu părinții"
     },
     {
-      src: "/galerie/chemical-experiment-on-kids-birthday-party-2024-09-16-16-13-21-utc-min.jpg",
-      alt: "Experimente științifice la petrecerea de ziua copilului",
-      category: "Evenimente speciale"
-    },
-    {
       src: "/galerie/people-2024-10-18-05-12-36-utc-min.jpg",
+      thumbSrc: "/galerie/people-2024-10-18-05-12-36-utc-min - Copy.jpg",
       alt: "Echipa Ringabell cu copiii",
       category: "Echipa și atmosferă"
+    },
+    {
+      src: "/galerie/preschool-boy-playing-with-colorful-toy-rocket-2025-10-09-10-35-49-utc.jpg",
+      thumbSrc: "/galerie/preschool-boy-playing-with-colorful-toy-rocket-2025-10-09-10-35-49-utc - Copy.jpg",
+      alt: "Băiat preșcolar jucându-se cu rachetă colorată",
+      category: "Joc și creativitate"
+    },
+    {
+      src: "/galerie/children-proudly-displaying-potted-plants-outdoors-2025-04-04-11-20-14-utc.jpg",
+      thumbSrc: "/galerie/children-proudly-displaying-potted-plants-outdoors-2025-04-04-11-20-14-utc - Copy.jpg",
+      alt: "Copiii prezintă mândri plantele în ghivece în aer liber",
+      category: "Activități în aer liber"
+    },
+    {
+      src: "/galerie/happy-boy-in-blue-shirt-2024-12-05-09-31-19-utc.jpg",
+      thumbSrc: "/galerie/happy-boy-in-blue-shirt-2024-12-05-09-31-19-utc - Copy.jpg",
+      alt: "Băiat fericit în cămașă albastră",
+      category: "Momente de bucurie"
+    },
+    {
+      src: "/galerie/envato-labs-image-edit.png",
+      thumbSrc: "/galerie/envato-labs-image-edit - Copy.jpg",
+      alt: "Editare imagine Envato Labs",
+      category: "Resurse creative"
+    },
+    {
+      src: "/galerie/teacher-and-students-making-a-circle-2025-08-10-10-22-27-utc.jpg",
+      thumbSrc: "/galerie/teacher-and-students-making-a-circle-2025-08-10-10-22-27-utc - Copy.jpg",
+      alt: "Învățătoarea și elevii formând un cerc",
+      category: "Activități de grup"
+    },
+    {
+      src: "/galerie/young-children-in-school-concentrating-on-their-le-2025-04-04-06-44-01-utc.jpg",
+      thumbSrc: "/galerie/young-children-in-school-concentrating-on-their-le-2025-04-04-06-44-01-utc - Copy.jpg",
+      alt: "Copii mici în școală concentrându-se pe învățare",
+      category: "Concentrare și învățare"
+    },
+    {
+      src: "/galerie/children-connecting-jigsaw-puzzle-pieces-in-a-kids-2025-02-11-02-09-26-utc.jpg",
+      thumbSrc: "/galerie/children-connecting-jigsaw-puzzle-pieces-in-a-kids-2025-02-11-02-09-26-utc - Copy.jpg",
+      alt: "Copiii conectând piese de puzzle pentru copii",
+      category: "Jocuri educative"
     }
   ];
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [selectedImage]);
+
+  const goToPrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : galleryImages.length - 1));
+  }, [galleryImages.length]);
+
+  const goToNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev < galleryImages.length - 1 ? prev + 1 : 0));
+  }, [galleryImages.length]);
+
+  const closeModal = useCallback(() => {
+    setSelectedImage(null);
+    setCurrentIndex(0);
+  }, []);
+
+  useEffect(() => {
+    if (!selectedImage) return;
+
+    const handleKeyDown = (e) => {
+      switch (e.key) {
+        case 'ArrowLeft':
+          goToPrev();
+          break;
+        case 'ArrowRight':
+          goToNext();
+          break;
+        case 'Escape':
+          closeModal();
+          break;
+        default:
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, goToPrev, goToNext, closeModal]);
+
+  const handleTouchStart = (e) => {
+    setTouchEnd(0);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+    if (isLeftSwipe) goToNext();
+    if (isRightSwipe) goToPrev();
+  };
 
   return (
     <div className="gallery">
       {/* Hero Section */}
       <section
-        className="hero parallax-section"
+        className="gallery-hero hero-section"
         data-reveal="up"
         data-reveal-once="true"
       >
-        <div className="floating-elements">
-          <img src="/childrenpart/capsuna.png" alt="Căpșună" className="floating-element" style={{width: '80px', height: '80px'}} />
-          <img src="/childrenpart/lubenita.png" alt="Lubeniță" className="floating-element" style={{width: '75px', height: '75px'}} />
-          <img src="/childrenpart/floare albastra.png" alt="Floare albastră" className="floating-element" style={{width: '65px', height: '65px'}} />
-          <img src="/childrenpart/fluture.png" alt="Fluture" className="floating-element" style={{width: '60px', height: '60px'}} />
-          <img src="/childrenpart/floare roz.png" alt="Floare roz" className="floating-element" style={{width: '70px', height: '70px'}} />
-          <img src="/childrenpart/buburuza .png" alt="Buburuză" className="floating-element" style={{width: '50px', height: '50px'}} />
-          <img src="/childrenpart/albina.png" alt="Albina" className="floating-element" style={{width: '45px', height: '45px'}} />
-          <img src="/childrenpart/balena.png" alt="Balenă" className="floating-element" style={{width: '90px', height: '90px'}} />
-          <img src="/childrenpart/peste.png" alt="Pește" className="floating-element" style={{width: '55px', height: '55px'}} />
-        </div>
-        <div className="hero-content bounce-in">
-          <h1 className="hero-title">Galeria noastră</h1>
-          <p className="hero-subtitle">
-            Momentele frumoase și zâmbetele copiilor în activitățile lor favorite
-          </p>
-        </div>
-      </section>
+        <div className="gallery-shell">
+          <div className="gallery-hero-inner">
+            <div className="gallery-hero-copy">
+              <h1 className="gallery-hero-title">
+                Galeria noastră
+              </h1>
 
-      {/* Gallery Introduction */}
-      <section
-        className="section"
-        data-reveal="up"
-        data-reveal-once="true"
-      >
-        <div className="container">
-          <h2 className="section-title">Momente de neuitat</h2>
-          <div style={{textAlign: 'center', maxWidth: '800px', margin: '0 auto'}}>
-            <p style={{fontSize: '1.2rem', color: 'var(--gray-600)'}}>
-              În galeria Ringabell poți vedea cât de fericiți și implicați sunt copiii în 
-              activitățile noastre. Fiecare imagine spune o poveste despre bucuria învățării, 
-              prieteniile care se formează și momentele magice ale copilăriei.
-            </p>
+              <p className="gallery-hero-subtitle">
+                Momentele frumoase și zâmbetele copiilor în activitățile lor favorite
+              </p>
+
+              <div className="gallery-hero-actions">
+                <Link
+                  to="/contact"
+                  className="gallery-button gallery-button--primary"
+                >
+                  Programează o vizită
+                </Link>
+                <Link
+                  to="/servicii"
+                  className="gallery-button gallery-button--ghost"
+                >
+                  Vezi serviciile
+                </Link>
+              </div>
+            </div>
+
+            <div className="gallery-hero-media" aria-hidden="true">
+              <div className="gallery-hero-photo-frame">
+                <img
+                  className="gallery-hero-photo"
+                  src="/galerie/children-connecting-jigsaw-puzzle-pieces-in-a-kids-2025-02-11-02-09-26-utc.jpg"
+                  alt="Copiii se joacă cu puzzle-uri"
+                />
+                <div className="gallery-hero-label">
+                  Jocuri educative
+                </div>
+              </div>
+
+              {/* Floating cute elements repositioned around hero */}
+              <div className="gallery-hero-floating">
+                <img
+                  src="/childrenpart/capsuna.png"
+                  alt="Căpșună"
+                  className="gallery-hero-icon hero-float--L1 friendly-strawberry"
+                />
+                <img
+                  src="/childrenpart/lubenita.png"
+                  alt="Lubeniță"
+                  className="gallery-hero-icon hero-float--R1 friendly-watermelon"
+                />
+                <img
+                  src="/childrenpart/floare albastra.png"
+                  alt="Floare albastră"
+                  className="gallery-hero-icon hero-float--L2 friendly-blueflower"
+                />
+                <img
+                  src="/childrenpart/fluture.png"
+                  alt="Fluture"
+                  className="gallery-hero-icon hero-float--R2 friendly-butterfly"
+                />
+                <img
+                  src="/childrenpart/floare roz.png"
+                  alt="Floare roz"
+                  className="gallery-hero-icon hero-float--L3 friendly-pinkflower"
+                />
+                <img
+                  src="/childrenpart/buburuza .png"
+                  alt="Buburuză"
+                  className="gallery-hero-icon hero-float--R3 friendly-ladybug"
+                />
+                <img
+                  src="/childrenpart/albina.png"
+                  alt="Albina"
+                  className="gallery-hero-icon hero-float--B1 friendly-bee"
+                />
+                <img
+                  src="/childrenpart/balena.png"
+                  alt="Balenă"
+                  className="gallery-hero-icon hero-float--B3 friendly-whale"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Main Gallery */}
       <section
-        className="section wave-decoration"
-        style={{background: 'var(--gray-100)'}}
+        className="section"
+        style={{background: 'var(--gray-100)', padding: '4rem 0'}}
         data-reveal="up"
         data-reveal-once="true"
       >
         <div className="container">
-          <h2 className="section-title">Activități zilnice</h2>
-          <div className="grid grid-3-enhanced mobile-two-column" style={{gap: '1.5rem'}}>
-            {galleryImages.slice(0, 6).map((image, index) => (
+          <div className="gallery-images-grid">
+            {galleryImages.map((image, index) => (
               <div
                 key={index}
-                className="card card-interactive"
-                style={{padding: '0', overflow: 'hidden'}}
-                data-reveal="up"
-                data-reveal-once="true"
-              >
-                <div style={{
+                style={{
                   position: 'relative',
-                  paddingTop: '75%',
-                  background: 'var(--accent-yellow-light)',
-                  borderRadius: 'var(--radius-xl) var(--radius-xl) 0 0',
-                  borderBottom: '3px solid var(--primary-blue)'
-                }}>
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    style={{
-                      position: 'absolute',
-                      top: '0',
-                      left: '0',
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      borderRadius: 'var(--radius-xl) var(--radius-xl) 0 0',
-                      transition: 'transform 0.3s ease'
-                    }}
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
-                  />
-                  <div style={{
-                    display: 'none',
+                  paddingTop: '100%',
+                  borderRadius: 'var(--radius-lg)',
+                  overflow: 'hidden',
+                  cursor: 'pointer',
+                  transition: 'transform 0.3s ease'
+                }}
+                onClick={() => {
+                  setSelectedImage(image);
+                  setCurrentIndex(galleryImages.findIndex(img => img.src === image.src));
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                <img
+                  src={image.thumbSrc}
+                  alt={image.alt}
+                  loading="lazy"
+                  style={{
                     position: 'absolute',
                     top: '0',
                     left: '0',
                     width: '100%',
                     height: '100%',
-                    background: 'var(--primary-blue)',
-                    color: 'white',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'column',
-                    fontSize: '1rem',
-                    fontWeight: '600',
-                    borderRadius: 'var(--radius-xl) var(--radius-xl) 0 0'
-                  }}>
-                    <span>📸</span>
-                    <span>Imagine demonstrativă</span>
-                  </div>
-                </div>
-                <div style={{padding: '1.5rem'}}>
-                  <h3 className="card-title" style={{fontSize: '1.1rem', marginBottom: '0.5rem'}}>
-                    {image.alt}
-                  </h3>
-                  <p style={{color: 'var(--primary-blue)', fontSize: '0.9rem', fontWeight: '500', marginBottom: '1rem'}}>
-                    {image.category}
-                  </p>
-                  <div className="progress-container">
-                    <div className="progress-bar">
-                      <div className="progress-fill" style={{width: `${85 + (index * 3)}%`}}></div>
-                    </div>
-                    <small style={{color: 'var(--gray-600)', fontWeight: '600'}}>Popularitate: {85 + (index * 3)}%</small>
-                  </div>
-                </div>
+                    objectFit: 'cover',
+                    transition: 'transform 0.3s ease'
+                  }}
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Fun Facts */}
-      <section
-        className="section"
-        data-reveal="up"
-        data-reveal-once="true"
-      >
-        <div className="container">
-          <h2 className="section-title">Momente distractive</h2>
-          <div className="grid grid-3-enhanced mobile-two-column">
-            <div
-              className="card card-interactive fun-border slide-in-left"
-              data-reveal="left"
-              data-reveal-once="true"
-            >
-              <div className="card-icon">🎨</div>
-              <h3 className="card-title">Pictură și artă</h3>
-              <p className="card-text">
-                Copiii își exprimă creativitatea prin activități artistice, de la pictură
-                cu degetele până la creații în lut și hârtie colorată.
-              </p>
-              <div style={{textAlign: 'center', marginTop: '1rem'}}>
-                <img src="/childrenpart/dinozaur.png" alt="Artă" style={{width: '35px', height: '35px', opacity: 0.6}} />
-              </div>
-            </div>
-            <div
-              className="card card-interactive fun-border slide-in-left"
-              style={{animationDelay: '0.2s'}}
-              data-reveal="up"
-              data-reveal-once="true"
-            >
-              <div className="card-icon">🔬</div>
-              <h3 className="card-title">Știință distractivă</h3>
-              <p className="card-text">
-                Experimente simple și captivante care îi fac pe copii să înțeleagă lumea
-                din jurul lor prin joacă și curiozitate.
-              </p>
-              <div style={{textAlign: 'center', marginTop: '1rem'}}>
-                <img src="/childrenpart/racheta .png" alt="Știință" style={{width: '35px', height: '35px', opacity: 0.6}} />
-              </div>
-            </div>
-            <div
-              className="card card-interactive fun-border slide-in-left"
-              style={{animationDelay: '0.4s'}}
-              data-reveal="right"
-              data-reveal-once="true"
-            >
-              <div className="card-icon">🎵</div>
-              <h3 className="card-title">Muzică și dans</h3>
-              <p className="card-text">
-                Învățăm copiii să iubească muzica prin cântece, dans și mișcare,
-                dezvoltând coordonarea și ritmul.
-              </p>
-              <div style={{textAlign: 'center', marginTop: '1rem'}}>
-                <img src="/childrenpart/balon cu aer cald.png" alt="Muzică" style={{width: '35px', height: '35px', opacity: 0.6}} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section
-        className="section"
-        style={{background: 'var(--gray-100)'}}
-        data-reveal="up"
-        data-reveal-once="true"
-      >
-        <div className="container">
-          <h2 className="section-title">Ce spun părinții despre galerie</h2>
-          <div style={{textAlign: 'center', marginBottom: '3rem'}}>
-            <p style={{fontSize: '1.2rem', color: 'var(--gray-600)'}}>
-              Galeria noastră nu ar fi completă fără feedback-ul părinților, care ne arată 
-              impactul pozitiv pe care îl avem asupra copiilor.
-            </p>
-          </div>
-          
-          <div className="grid grid-3">
-            <div className="card">
-              <h4 className="card-title">Andreea Miron</h4>
-              <p className="card-text">
-                "Când văd imaginile din galerie, mă înduioșez de fiecare dată. Copilul meu e 
-                atât de fericit la Ringabell și se vede din poze cât de mult îi place să fie acolo."
-              </p>
-            </div>
-            <div className="card">
-              <h4 className="card-title">Mihai Georgescu</h4>
-              <p className="card-text">
-                "E uimitor să vezi progresul copilului prin aceste fotografii. Din poze se vede 
-                că învață multe lucruri noi și se dezvoltă frumos."
-              </p>
-            </div>
-            <div className="card">
-              <h4 className="card-title">Laura Popescu</h4>
-              <p className="card-text">
-                "Galeria ne ajută să ținem pasul cu tot ce se întâmplă la centru. E minunat 
-                că puteți documenta atât de frumos momentele importante."
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Stats */}
-      <section
-        className="section"
-        data-reveal="up"
-        data-reveal-once="true"
-      >
-        <div className="container">
-          <h2 className="section-title">Galeria în cifre</h2>
-          <div className="grid grid-3-enhanced mobile-two-column">
-            <div
-              className="card text-center card-interactive bounce-in"
-              data-reveal="left"
-              data-reveal-once="true"
-            >
-              <div className="card-icon">📸</div>
-              <h3 className="card-title">1000+</h3>
-              <p className="card-text">Fotografii în galeria noastră</p>
-              <div className="progress-container">
-                <div className="progress-bar">
-                  <div className="progress-fill" style={{width: '95%'}}></div>
-                </div>
-                <small style={{color: 'var(--primary-blue)', fontWeight: '600'}}>Actualizare zilnică</small>
-              </div>
-            </div>
-            <div
-              className="card text-center card-interactive bounce-in"
-              style={{animationDelay: '0.2s'}}
-              data-reveal="up"
-              data-reveal-once="true"
-            >
-              <div className="card-icon">🎉</div>
-              <h3 className="card-title">50+</h3>
-              <p className="card-text">Evenimente documentate anual</p>
-              <div className="progress-container">
-                <div className="progress-bar">
-                  <div className="progress-fill" style={{width: '88%'}}></div>
-                </div>
-                <small style={{color: 'var(--secondary-pink)', fontWeight: '600'}}>Creștere anuală 20%</small>
-              </div>
-            </div>
-            <div
-              className="card text-center card-interactive bounce-in"
-              style={{animationDelay: '0.4s'}}
-              data-reveal="right"
-              data-reveal-once="true"
-            >
-              <div className="card-icon">📅</div>
-              <h3 className="card-title">365</h3>
-              <p className="card-text">Zile de amintiri frumoase</p>
-              <div className="progress-container">
-                <div className="progress-bar">
-                  <div className="progress-fill" style={{width: '100%'}}></div>
-                </div>
-                <small style={{color: 'var(--success-green)', fontWeight: '600'}}>Fiecare zi contează</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section
         className="section"
         data-reveal="up"
         data-reveal-once="true"
+        style={{background: 'rgba(191, 225, 255, 0.2)', position: 'relative', overflow: 'hidden'}}
       >
+        <div className="floating-elements">
+          <img src="/childrenpart/capsuna.png" alt="Căpșună" className="floating-element" style={{width: '50px', height: '50px', top: '10%', left: '5%'}} />
+          <img src="/childrenpart/lubenita.png" alt="Lubeniță" className="floating-element" style={{width: '55px', height: '55px', top: '20%', right: '10%'}} />
+          <img src="/childrenpart/floare albastra.png" alt="Floare albastră" className="floating-element" style={{width: '45px', height: '45px', bottom: '20%', left: '15%'}} />
+          <img src="/childrenpart/buburuza .png" alt="Buburuză" className="floating-element" style={{width: '60px', height: '60px', bottom: '10%', right: '5%'}} />
+        </div>
         <div className="container text-center">
-          <h2 className="section-title">Vrei să faci parte din galeria noastră?</h2>
+          <h2 className="section-title">Transformăm joaca în amintiri, vrei să faci parte din ele?</h2>
           <p style={{fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--gray-600)'}}>
-            Adaugă-te și tu în galeria Ringabell și creează amintiri frumoase împreună cu noi!
+            Alătură-te și creează momente memorabile pentru copilul tău.
           </p>
           <Link to="/contact" className="btn btn-primary btn-large">
-            Înscrie-te acum
+            Programează o vizită
           </Link>
         </div>
       </section>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.9)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 2000
+          }}
+          onClick={closeModal}
+        >
+          <button
+            className="gallery-nav-btn"
+            style={{
+              position: 'absolute',
+              left: '20px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              background: 'rgba(255, 255, 255, 0.8)',
+              border: 'none',
+              borderRadius: '50%',
+              width: '50px',
+              height: '50px',
+              fontSize: '24px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              goToPrev();
+            }}
+          >
+            ‹
+          </button>
+          <div
+            style={{
+              maxWidth: '80%',
+              maxHeight: '80%',
+              overflow: 'hidden',
+              cursor: 'default',
+              width: '100%',
+              height: '100%'
+            }}
+            onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div
+              style={{
+                display: 'flex',
+                width: `${galleryImages.length * 100}%`,
+                height: '100%',
+                transform: `translateX(-${currentIndex * (100 / galleryImages.length)}%)`,
+                transition: isMobile ? 'transform 0.3s ease' : 'none'
+              }}
+            >
+              {galleryImages.map((image, index) => (
+                <img
+                  key={index}
+                  src={image.src}
+                  alt={image.alt}
+                  style={{
+                    width: `${100 / galleryImages.length}%`,
+                    height: '100%',
+                    objectFit: 'contain'
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+          <button
+            className="gallery-nav-btn"
+            style={{
+              position: 'absolute',
+              right: '20px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              background: 'rgba(255, 255, 255, 0.8)',
+              border: 'none',
+              borderRadius: '50%',
+              width: '50px',
+              height: '50px',
+              fontSize: '24px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              goToNext();
+            }}
+          >
+            ›
+          </button>
+          <button
+            className="gallery-close-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              closeModal();
+            }}
+          >
+            ×
+          </button>
+        </div>
+      )}
     </div>
   );
 };
