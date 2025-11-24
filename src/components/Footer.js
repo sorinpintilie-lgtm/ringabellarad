@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section footer-logo-section">
-            <h3 className="footer-logo">Ringabell</h3>
+            <img src="/logo.png" alt="Ringabell Logo" className="footer-logo" />
             <p className="footer-text">
               Cel mai modern centru pentru copii din Arad. Oferim servicii de calitate
               într-un mediu sigur și prietenos pentru cei mici.

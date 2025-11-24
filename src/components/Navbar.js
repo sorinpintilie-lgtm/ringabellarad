@@ -42,7 +42,7 @@ const Navbar = () => {
           to="/"
           className="nav-logo"
         >
-          Ringabell
+          <img src="/logo.png" alt="Ringabell Logo" />
         </Link>
 
         {/* Desktop inline links */}

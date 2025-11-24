@@ -290,11 +290,7 @@ p {
 }
 
 .nav-logo {
-  font-size: 2.2rem;
-  font-weight: 900;
-  color: var(--primary-blue);
   text-decoration: none;
-  text-shadow: 2px 2px 4px rgba(74, 144, 226, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -302,6 +298,14 @@ p {
   border-radius: var(--radius-lg);
   transition: all var(--transition-normal);
   background: rgba(255, 255, 255, 0.5);
+}
+
+.nav-logo img {
+  height: 3rem;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(74, 144, 226, 0.2));
 }
 
 .nav-logo:hover {
@@ -519,10 +523,11 @@ p {
 }
 
 .footer-logo {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--primary-blue);
-  text-shadow: 2px 2px 4px rgba(74, 144, 226, 0.3);
+  height: 2.5rem;
+  width: auto;
+  max-width: 250px;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(74, 144, 226, 0.3));
 }
 
 .footer-text {
