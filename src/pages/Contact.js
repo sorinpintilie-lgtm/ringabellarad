@@ -233,7 +233,7 @@ const Contact = () => {
               <h3 className="card-title" style={{fontSize: '1.1rem'}}>Informații de contact</h3>
               <ul style={{marginTop: '0.75rem', fontSize: '0.9rem', color: 'var(--gray-600)'}}>
                 <li>Telefon & WhatsApp: <a href="tel:0741643983" style={{color: 'var(--primary-blue)'}}>0741 643 983</a></li>
-                <li>Email: <a href="mailto:contact@ringabell.ro" style={{color: 'var(--primary-blue)'}}>contact@ringabell.ro</a></li>
+                <li>Email: <a href="mailto:gradinita@ringabell.ro" style={{color: 'var(--primary-blue)'}}>gradinita@ringabell.ro</a></li>
                 <li>Facebook: <a href="https://www.facebook.com/gradinita.ringabell/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--primary-blue)'}}>Gradinița Ringabell</a></li>
               </ul>
             </div>

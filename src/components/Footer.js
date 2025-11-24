@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="footer-section footer-contact-section">
             <h4>Contact</h4>
             <div className="footer-contact">
-              <p>📧 contact@ringabell.ro</p>
+              <p>📧 gradinita@ringabell.ro</p>
               <p>📞 0741 643 983</p>
               <p>📍 Strada Busuioc 19, Arad 310295</p>
             </div>

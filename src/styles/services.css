@@ -59,7 +59,7 @@
 .services-hero {
   position: relative;
   padding: 7.5rem 0 4.5rem;
-  min-height: 90vh;
+  height: 600px;
   background: linear-gradient(
     135deg,
     #ECFEFF 0%,

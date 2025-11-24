@@ -586,7 +586,7 @@ p {
 /* Hero Section - Full Width Modern Design */
 .hero-fullwidth {
   position: relative;
-  height: 100vh; /* Full viewport height */
+  height: 600px; /* Fixed height instead of viewport percentage */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1580,7 +1580,7 @@ p {
 .floating-element {
   position: absolute;
   opacity: 0.5;
-  animation: float 6s ease-in-out infinite;
+  /* animation: float 6s ease-in-out infinite; */
   pointer-events: none;
   filter: blur(1px) drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
 }
