@@ -45,7 +45,7 @@ const Contact = () => {
                   <div className="grid grid-2">
                     <div>
                       <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--gray-700)', fontSize: '0.9rem'}}>
-                        Numele tău *
+                        Nume părinte *
                       </label>
                       <input
                         type="text"

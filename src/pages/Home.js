@@ -281,34 +281,42 @@ const Home = () => {
             <div className="home-day-grid">
               <article className="home-day-item">
                 <div className="home-day-icon">🥣</div>
-                <h3 className="home-day-title">Mic dejun & gustări</h3>
-                <p className="home-day-text">
-                  Începem ziua cu un mic dejun echilibrat și gustări sănătoase, adaptate vârstei copiilor.
-                </p>
+                <div className="home-day-content">
+                  <h3 className="home-day-title">Mic dejun & gustări</h3>
+                  <p className="home-day-text">
+                    Începem ziua cu un mic dejun echilibrat și gustări sănătoase, adaptate vârstei copiilor.
+                  </p>
+                </div>
               </article>
 
               <article className="home-day-item">
                 <div className="home-day-icon">🎨</div>
-                <h3 className="home-day-title">Activități educative</h3>
-                <p className="home-day-text">
-                  Jocuri, povești și exerciții care dezvoltă limbajul, creativitatea și autonomia.
-                </p>
+                <div className="home-day-content">
+                  <h3 className="home-day-title">Activități educative</h3>
+                  <p className="home-day-text">
+                    Jocuri, povești și exerciții care dezvoltă limbajul, creativitatea și autonomia.
+                  </p>
+                </div>
               </article>
 
               <article className="home-day-item">
                 <div className="home-day-icon">😴</div>
-                <h3 className="home-day-title">Timp de odihnă</h3>
-                <p className="home-day-text">
-                  Un moment liniștit pentru somn sau relaxare, într-un spațiu sigur și confortabil.
-                </p>
+                <div className="home-day-content">
+                  <h3 className="home-day-title">Timp de odihnă</h3>
+                  <p className="home-day-text">
+                    Un moment liniștit pentru somn sau relaxare, într-un spațiu sigur și confortabil.
+                  </p>
+                </div>
               </article>
 
               <article className="home-day-item">
                 <div className="home-day-icon">🧸</div>
-                <h3 className="home-day-title">Joacă liberă</h3>
-                <p className="home-day-text">
-                  Copiii explorează, construiesc prietenii și învață să împartă prin joacă liberă supravegheată.
-                </p>
+                <div className="home-day-content">
+                  <h3 className="home-day-title">Joacă liberă</h3>
+                  <p className="home-day-text">
+                    Copiii explorează, construiesc prietenii și învață să împartă prin joacă liberă supravegheată.
+                  </p>
+                </div>
               </article>
             </div>
           </div>
@@ -363,7 +371,7 @@ const Home = () => {
               <div className="home-activity-secondary">
                 <article className="home-activity-mini">
                   <img
-                    src="/childrenpart/dinozaur.png"
+                    src="/galerie/painting-provides-lots-of-opportunities-to-learn-2025-04-06-13-00-09-utc.jpg"
                     alt="Ateliere de creație"
                   />
                   <div>
@@ -673,38 +681,53 @@ const Home = () => {
             </header>
 
             <div className="home-testimonials-layout">
-              <article className="home-testimonial-main">
-                <p>
-                  O grădiniță absolut impecabilă cu un personal foarte bine pregătit si responsabil... Suntem foarte mulțumite si cu siguranță vă recomandăm cu mult drag..💝💝💝
-                </p>
-                <div className="home-testimonial-author">
-                  <div className="home-testimonial-avatar">
-                    <img
-                      src="/childrenpart/inima.png"
-                      alt="Părinte Ringabell"
-                    />
+              <div className="home-testimonial-main">
+                <article className="home-testimonial-main-card">
+                  <p>
+                    O grădiniță absolut impecabilă cu un personal foarte bine pregătit si responsabil... Suntem foarte mulțumite si cu siguranță vă recomandăm cu mult drag..💝💝💝
+                  </p>
+                  <div className="home-testimonial-author">
+                    <div className="home-testimonial-meta">
+                      <h4>Florina Anny</h4>
+                      <span>Părinte</span>
+                    </div>
                   </div>
-                  <div className="home-testimonial-meta">
-                    <h4>Florina Anny</h4>
-                    <span>Părinte</span>
+                </article>
+
+                <article className="home-testimonial-main-card">
+                  <p>O gradinita frumoasa,curata,foarte bine dotata,cu un personal responsabil care le ofera copiilor o educatie exemplara.</p>
+                  <div className="home-testimonial-author">
+                    <div className="home-testimonial-meta">
+                      <h4>Pascu Vasile-Gelu</h4>
+                      <span>Părinte</span>
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </div>
 
               <div className="home-testimonial-side">
                 <article className="home-testimonial-side-card">
                   <p>
                     Fiica mea merge la grădiniță aici, un loc frumos, cu personal foarte amabil, un mediu prietenos și sigur. Îi place mult și este mereu fericită să vină.
                   </p>
-                  <h4>Cosmin Levarda</h4>
+                  <div className="home-testimonial-author desktop-hidden">
+                    <div className="home-testimonial-meta">
+                      <h4>Cosmin Levarda</h4>
+                      <span>Părinte</span>
+                    </div>
+                  </div>
                 </article>
 
-                <article className="home-testimonial-side-card">
-                  <p>
-                    O gradinita frumoasa,curata,foarte bine dotata,cu un personal responsabil care le ofera copiilor o educatie exemplara.
-                  </p>
-                  <h4>Pascu Vasile-Gelu</h4>
+                <article className="home-testimonial-side-card mobile-hidden">
+                  <p>O grădiniță minunată</p>
+                  <div className="home-testimonial-author">
+                    <div className="home-testimonial-meta">
+                      <h4>Betina Cohan</h4>
+                      <span>Părinte</span>
+                    </div>
+                  </div>
                 </article>
+
               </div>
             </div>
           </div>

@@ -81,8 +81,27 @@
   border-radius: 1.5rem;
   padding: 1.4rem 1.2rem 1.5rem;
   box-shadow: var(--shadow-md);
-  text-align: left;
+  text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+}
+
+.home-day-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-day-text {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.home-day-title {
+  margin-bottom: 0.75rem;
 }
 
 /* HERO */
@@ -623,7 +642,7 @@
 
 .home-activity-mini {
   display: grid;
-  grid-template-columns: 120px minmax(0, 1fr);
+  grid-template-columns: 100px minmax(0, 1fr);
   gap: 0.85rem;
   padding: 0.9rem;
   border-radius: 1.25rem;
@@ -631,21 +650,45 @@
   box-shadow: var(--shadow-md);
 }
 
+.home-activity-mini > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .home-activity-mini img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 1rem;
 }
 
+@media (min-width: 768px) {
+  .home-activity-mini {
+    grid-template-columns: 130px minmax(0, 1fr);
+  }
+
+  .home-activity-mini img {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-hidden {
+    display: none;
+  }
+}
+
 .home-activity-mini h4 {
   font-size: 0.98rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
 }
 
 .home-activity-mini p {
   font-size: 0.9rem;
   color: var(--gray-600);
+  text-align: justify;
 }
 
 /* TEAM */
@@ -976,11 +1019,17 @@
 
 .home-testimonials-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   gap: 2rem;
 }
 
 .home-testimonial-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.home-testimonial-main-card {
   border-radius: 1.75rem;
   padding: 1.9rem 1.7rem;
   background: rgba(15, 23, 42, 0.32);
@@ -1438,8 +1487,30 @@
 
   .home-day-item {
     border-radius: 1.4rem;
-    padding: 1.2rem 1.1rem 1.3rem;
+    padding: 1.2rem 1.1rem 0.5rem;
     text-align: left;
+    min-height: 140px;
+    position: relative;
+  }
+
+  .home-day-item .home-day-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .home-day-title {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .mobile-hidden {
+    display: none;
+  }
+
+  .desktop-only {
+    display: none;
   }
 
   .home-day-title {
