@@ -1505,6 +1505,10 @@
     left: 1rem;
   }
 
+  .home-day-text {
+    text-align: justify;
+  }
+
   .mobile-hidden {
     display: none;
   }
