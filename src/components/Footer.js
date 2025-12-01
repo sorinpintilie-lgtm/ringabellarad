@@ -57,8 +57,22 @@ const Footer = () => {
         
         <div className="footer-bottom">
           <p>&copy; 2025 Ringabell. Toate drepturile rezervate.</p>
-          <p>Cu drag pentru cei mici!</p>
+          <p>
+            Powered by{' '}
+            <a
+              href="https://visualmarketing.ro"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/visualMarketing_logo.png"
+                alt="Visual Marketing"
+                className="credit-logo"
+              />
+            </a>
+          </p>
         </div>
+
       </div>
     </footer>
   );
