@@ -407,6 +407,8 @@
   width: 100%;
   border-radius: 1.6rem;
   box-shadow: var(--shadow-lg);
+  object-fit: cover;
+  object-position: 50% 80%;
 }
 
 .split-text h2,

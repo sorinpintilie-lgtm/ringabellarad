@@ -852,6 +852,11 @@
   object-position: top;
 }
 
+.home-gallery-item:nth-child(1) img,
+.home-gallery-item:nth-child(2) img {
+  object-position: center;
+}
+
 .home-gallery-item--tall {
   grid-row: span 2;
 }
