@@ -42,8 +42,9 @@ const Services = () => {
               <div className="services-hero-photo-frame">
                 <img
                   className="services-hero-photo"
-                  src="/galerie/learning-conception-new-words-children-in-kinder-2025-08-10-10-08-27-utc-min.JPG"
+                  src="/galerie/IMG_6314.jpg"
                   alt="Copiii învață cuvinte noi"
+                  style={{objectPosition: 'center 30%'}}
                 />
                 <div className="services-hero-label">
                   Învățare distractivă

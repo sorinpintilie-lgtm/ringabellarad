@@ -69,6 +69,7 @@ dist
 # Gatsby files
 .cache/
 public
+!public/galerie/
 
 # Storybook build outputs
 .out

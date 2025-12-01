@@ -42,7 +42,7 @@ const About = () => {
               <div className="about-hero-photo-frame">
                 <img
                   className="about-hero-photo"
-                  src="/galerie/people-2024-10-18-05-12-36-utc-min.jpg"
+                  src="/galerie/IMG_6347.jpg"
                   alt="Echipa Ringabell cu copiii"
                 />
                 <div className="about-hero-label">
@@ -107,7 +107,7 @@ const About = () => {
           </div>
 
           <div className="split-image">
-            <img src="/galerie/nursery-children-having-fun-and-playing-with-teach-2025-03-14-21-42-40-utc-min.jpg" alt="Copii într-un mediu sigur" />
+            <img src="/galerie/IMG_6344.jpg" alt="Copii într-un mediu sigur" />
           </div>
         </div>
       </section>
@@ -150,7 +150,7 @@ const About = () => {
         </div>
         <div className="container split-grid">
           <div className="split-image">
-            <img src="/galerie/children-connecting-jigsaw-puzzle-pieces-in-a-kids-2025-02-11-02-09-26-utc.jpg" alt="Copii care se joacă" />
+            <img src="/galerie/IMG_6287.jpg" alt="Copii care se joacă" />
           </div>
 
           <div className="split-text">

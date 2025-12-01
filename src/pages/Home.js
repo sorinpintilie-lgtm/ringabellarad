@@ -72,7 +72,7 @@ const Home = () => {
                 <div className="home-hero-photo-frame">
                   <img
                     className="home-hero-photo"
-                    src="/galerie/nursery-children-having-fun-and-playing-with-teach-2025-03-14-21-42-40-utc-min.jpg"
+                    src="/galerie/IMG_6321.jpg"
                     alt="Copii jucându-se cu educatoarea"
                   />
                   <div className="home-hero-label">
@@ -345,7 +345,7 @@ const Home = () => {
             <div className="home-activities-grid">
               <article className="home-activity-main">
                 <img
-                  src="/galerie/preschool-boy-playing-with-colorful-toy-rocket-2025-10-09-10-35-49-utc.jpg"
+                  src="/galerie/IMG_6289.jpg"
                   alt="Băiat jucându-se cu rachetă colorată"
                 />
                 <div className="home-activity-main-body">
@@ -371,7 +371,7 @@ const Home = () => {
               <div className="home-activity-secondary">
                 <article className="home-activity-mini">
                   <img
-                    src="/galerie/painting-provides-lots-of-opportunities-to-learn-2025-04-06-13-00-09-utc.jpg"
+                    src="/galerie/IMG_6337.jpg"
                     alt="Ateliere de creație"
                   />
                   <div>
@@ -382,7 +382,7 @@ const Home = () => {
 
                 <article className="home-activity-mini">
                   <img
-                    src="/galerie/portrait-of-preschool-children-and-the-teacher-2024-11-28-03-52-26-utc-min.jpg"
+                    src="/galerie/IMG_6301.jpg"
                     alt="Povești și joacă de rol"
                   />
                   <div>
@@ -393,7 +393,7 @@ const Home = () => {
 
                 <article className="home-activity-mini">
                   <img
-                    src="/galerie/nursery-children-having-fun-and-playing-with-teach-2025-03-14-21-42-40-utc-min.jpg"
+                    src="/galerie/IMG_6387.jpg"
                     alt="Mișcare și aer curat"
                   />
                   <div>
@@ -521,19 +521,19 @@ const Home = () => {
               <div className="home-gallery-grid">
                 <figure className="home-gallery-item">
                   <img
-                    src="/galerie/chemical-experiment-on-kids-birthday-party-2024-09-16-16-13-21-utc-min.jpg"
+                    src="/galerie/IMG_6268.jpg"
                     alt="Moment de familie"
                   />
                 </figure>
                 <figure className="home-gallery-item">
                   <img
-                    src="/galerie/children-connecting-jigsaw-puzzle-pieces-in-a-kids-2025-02-11-02-09-26-utc.jpg"
+                    src="/galerie/IMG_6272.jpg"
                     alt="Joacă în grup"
                   />
                 </figure>
                 <figure className="home-gallery-item">
                   <img
-                    src="/galerie/children-proudly-displaying-potted-plants-outdoors-2025-04-04-11-20-14-utc.jpg"
+                    src="/galerie/IMG_6277.jpg"
                     alt="Copii fericiți alături de educatoare"
                   />
                 </figure>

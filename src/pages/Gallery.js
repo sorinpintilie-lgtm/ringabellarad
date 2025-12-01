@@ -10,78 +10,36 @@ const Gallery = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const galleryImages = [
-    {
-      src: "/galerie/nursery-children-having-fun-and-playing-with-teach-2025-03-14-21-42-40-utc-min.jpg",
-      thumbSrc: "/galerie/nursery-children-having-fun-and-playing-with-teach-2025-03-14-21-42-40-utc-min - Copy.jpg",
-      alt: "Copiii se joacă cu învățătoarea",
-      category: "Joc și interacțiune"
-    },
-    {
-      src: "/galerie/portrait-of-preschool-children-and-the-teacher-2024-11-28-03-52-26-utc-min.jpg",
-      thumbSrc: "/galerie/portrait-of-preschool-children-and-the-teacher-2024-11-28-03-52-26-utc-min - Copy.jpg",
-      alt: "Portret de grup în grădiniță",
-      category: "Echipă și comunitate"
-    },
-    {
-      src: "/galerie/learning-conception-new-words-children-in-kinder-2025-08-10-10-08-27-utc-min.JPG",
-      thumbSrc: "/galerie/learning-conception-new-words-children-in-kinder-2025-08-10-10-08-27-utc-min - Copy.JPG",
-      alt: "Copiii învață cuvinte noi",
-      category: "Proces educativ"
-    },
-    {
-      src: "/galerie/mother-sitting-with-two-children-having-discussio-2025-04-04-17-34-34-utc-min.jpg",
-      thumbSrc: "/galerie/mother-sitting-with-two-children-having-discussio-2025-04-04-17-34-34-utc-min - Copy.jpg",
-      alt: "Părinți și copii în discuție",
-      category: "Comunicare cu părinții"
-    },
-    {
-      src: "/galerie/people-2024-10-18-05-12-36-utc-min.jpg",
-      thumbSrc: "/galerie/people-2024-10-18-05-12-36-utc-min - Copy.jpg",
-      alt: "Echipa Ringabell cu copiii",
-      category: "Echipa și atmosferă"
-    },
-    {
-      src: "/galerie/preschool-boy-playing-with-colorful-toy-rocket-2025-10-09-10-35-49-utc.jpg",
-      thumbSrc: "/galerie/preschool-boy-playing-with-colorful-toy-rocket-2025-10-09-10-35-49-utc - Copy.jpg",
-      alt: "Băiat preșcolar jucându-se cu rachetă colorată",
-      category: "Joc și creativitate"
-    },
-    {
-      src: "/galerie/children-proudly-displaying-potted-plants-outdoors-2025-04-04-11-20-14-utc.jpg",
-      thumbSrc: "/galerie/children-proudly-displaying-potted-plants-outdoors-2025-04-04-11-20-14-utc - Copy.jpg",
-      alt: "Copiii prezintă mândri plantele în ghivece în aer liber",
-      category: "Activități în aer liber"
-    },
-    {
-      src: "/galerie/happy-boy-in-blue-shirt-2024-12-05-09-31-19-utc.jpg",
-      thumbSrc: "/galerie/happy-boy-in-blue-shirt-2024-12-05-09-31-19-utc - Copy.jpg",
-      alt: "Băiat fericit în cămașă albastră",
-      category: "Momente de bucurie"
-    },
-    {
-      src: "/galerie/envato-labs-image-edit.png",
-      thumbSrc: "/galerie/envato-labs-image-edit - Copy.jpg",
-      alt: "Editare imagine Envato Labs",
-      category: "Resurse creative"
-    },
-    {
-      src: "/galerie/teacher-and-students-making-a-circle-2025-08-10-10-22-27-utc.jpg",
-      thumbSrc: "/galerie/teacher-and-students-making-a-circle-2025-08-10-10-22-27-utc - Copy.jpg",
-      alt: "Învățătoarea și elevii formând un cerc",
-      category: "Activități de grup"
-    },
-    {
-      src: "/galerie/young-children-in-school-concentrating-on-their-le-2025-04-04-06-44-01-utc.jpg",
-      thumbSrc: "/galerie/young-children-in-school-concentrating-on-their-le-2025-04-04-06-44-01-utc - Copy.jpg",
-      alt: "Copii mici în școală concentrându-se pe învățare",
-      category: "Concentrare și învățare"
-    },
-    {
-      src: "/galerie/children-connecting-jigsaw-puzzle-pieces-in-a-kids-2025-02-11-02-09-26-utc.jpg",
-      thumbSrc: "/galerie/children-connecting-jigsaw-puzzle-pieces-in-a-kids-2025-02-11-02-09-26-utc - Copy.jpg",
-      alt: "Copiii conectând piese de puzzle pentru copii",
-      category: "Jocuri educative"
-    }
+    { src: "/galerie/IMG_6268.jpg", thumbSrc: "/galerie/IMG_6268.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6272.jpg", thumbSrc: "/galerie/IMG_6272.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6277.jpg", thumbSrc: "/galerie/IMG_6277.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6282.jpg", thumbSrc: "/galerie/IMG_6282.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6283.jpg", thumbSrc: "/galerie/IMG_6283.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6284.jpg", thumbSrc: "/galerie/IMG_6284.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6287.jpg", thumbSrc: "/galerie/IMG_6287.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6289.jpg", thumbSrc: "/galerie/IMG_6289.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6291.jpg", thumbSrc: "/galerie/IMG_6291.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6301.jpg", thumbSrc: "/galerie/IMG_6301.jpg", alt: "Imagine din galerie", category: "Povești și joacă de rol" },
+    { src: "/galerie/IMG_6304.jpg", thumbSrc: "/galerie/IMG_6304.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6307.jpg", thumbSrc: "/galerie/IMG_6307.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6308.jpg", thumbSrc: "/galerie/IMG_6308.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6314.jpg", thumbSrc: "/galerie/IMG_6314.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6316.jpg", thumbSrc: "/galerie/IMG_6316.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6318.jpg", thumbSrc: "/galerie/IMG_6318.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6321.jpg", thumbSrc: "/galerie/IMG_6321.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6326.jpg", thumbSrc: "/galerie/IMG_6326.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6335.jpg", thumbSrc: "/galerie/IMG_6335.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6336.jpg", thumbSrc: "/galerie/IMG_6336.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6337.jpg", thumbSrc: "/galerie/IMG_6337.jpg", alt: "Imagine din galerie", category: "Ateliere de creație" },
+    { src: "/galerie/IMG_6344.jpg", thumbSrc: "/galerie/IMG_6344.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6347.jpg", thumbSrc: "/galerie/IMG_6347.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6348.jpg", thumbSrc: "/galerie/IMG_6348.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6362.jpg", thumbSrc: "/galerie/IMG_6362.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6364.jpg", thumbSrc: "/galerie/IMG_6364.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6382.jpg", thumbSrc: "/galerie/IMG_6382.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6384.jpg", thumbSrc: "/galerie/IMG_6384.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6387.jpg", thumbSrc: "/galerie/IMG_6387.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
+    { src: "/galerie/IMG_6388.jpg", thumbSrc: "/galerie/IMG_6388.jpg", alt: "Imagine din galerie", category: "Imagini noi" }
   ];
 
   useEffect(() => {
@@ -193,8 +151,9 @@ const Gallery = () => {
               <div className="gallery-hero-photo-frame">
                 <img
                   className="gallery-hero-photo"
-                  src="/galerie/children-connecting-jigsaw-puzzle-pieces-in-a-kids-2025-02-11-02-09-26-utc.jpg"
+                  src="/galerie/IMG_6373.jpg"
                   alt="Copiii se joacă cu puzzle-uri"
+                  style={{objectPosition: '20% 50%'}}
                 />
                 <div className="gallery-hero-label">
                   Jocuri educative
