@@ -347,6 +347,7 @@ const Home = () => {
                 <img
                   src="/galerie/IMG_6289.jpg"
                   alt="Băiat jucându-se cu rachetă colorată"
+                  loading="lazy"
                 />
                 <div className="home-activity-main-body">
                   <span className="home-activity-badge">
@@ -373,6 +374,7 @@ const Home = () => {
                   <img
                     src="/galerie/IMG_6337.jpg"
                     alt="Ateliere de creație"
+                    loading="lazy"
                   />
                   <div>
                     <h4>Ateliere de creație</h4>
@@ -384,6 +386,7 @@ const Home = () => {
                   <img
                     src="/galerie/IMG_6301.jpg"
                     alt="Povești și joacă de rol"
+                    loading="lazy"
                   />
                   <div>
                     <h4>Povești și joacă de rol</h4>
@@ -395,6 +398,7 @@ const Home = () => {
                   <img
                     src="/galerie/IMG_6387.jpg"
                     alt="Mișcare și aer curat"
+                    loading="lazy"
                   />
                   <div>
                     <h4>Mișcare și aer curat</h4>
@@ -523,18 +527,21 @@ const Home = () => {
                   <img
                     src="/galerie/IMG_6268.jpg"
                     alt="Moment de familie"
+                    loading="lazy"
                   />
                 </figure>
                 <figure className="home-gallery-item">
                   <img
                     src="/galerie/IMG_6272.jpg"
                     alt="Joacă în grup"
+                    loading="lazy"
                   />
                 </figure>
                 <figure className="home-gallery-item">
                   <img
                     src="/galerie/IMG_6277.jpg"
                     alt="Copii fericiți alături de educatoare"
+                    loading="lazy"
                   />
                 </figure>
               </div>
