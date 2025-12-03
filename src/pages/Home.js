@@ -137,12 +137,12 @@ const Home = () => {
           <div className="home-shell">
             <div className="home-stats-grid">
               <article className="home-stat-card">
-                <div className="home-stat-number">500+</div>
+                <div className="home-stat-number">100+</div>
                 <div className="home-stat-label">Familii care ne-au ales</div>
               </article>
 
               <article className="home-stat-card">
-                <div className="home-stat-number">4</div>
+                <div className="home-stat-number">8+</div>
                 <div className="home-stat-label">Ani de experiență</div>
               </article>
 
