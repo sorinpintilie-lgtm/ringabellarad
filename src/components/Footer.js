@@ -9,8 +9,7 @@ const Footer = () => {
           <div className="footer-section footer-logo-section">
             <img src="/logo.png" alt="Ringabell Logo" className="footer-logo" />
             <p className="footer-text">
-              Cel mai modern centru pentru copii din Arad. Oferim servicii de calitate
-              într-un mediu sigur și prietenos pentru cei mici.
+              Calitate pentru copii. Liniște pentru părinți. Un spațiu sigur și prietenos, creat pentru cei mici.
             </p>
           </div>
 
@@ -31,12 +30,9 @@ const Footer = () => {
                   <div className="day">Luni - Vineri</div>
                   <div className="time">7:00 - 18:00</div>
                 </div>
+                
                 <div className="hours-item">
-                  <div className="day">Sâmbătă</div>
-                  <div className="time">9:00 - 15:00</div>
-                </div>
-                <div className="hours-item">
-                  <div className="day">Duminică</div>
+                  <div className="day">Sâmbătă - Duminică</div>
                   <div className="time">Închis</div>
                 </div>
               </div>
@@ -56,17 +52,17 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; 2025 Ringabell. Toate drepturile rezervate.</p>
+          <p>&copy; 2026 Ringabell. Toate drepturile rezervate.</p>
           <p>
             Powered by{' '}
             <a
-              href="https://visualmarketing.ro"
+              href="https://sky.ro"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src="/visualMarketing_logo.png"
-                alt="Visual Marketing"
+                src="/skyro.png"
+                alt="Sky"
                 className="credit-logo"
               />
             </a>

@@ -127,7 +127,7 @@ const Services = () => {
             </article>
 
             <article className="age-group-card">
-              <h3>Grupa mare / pregătitoare</h3>
+              <h3>Grupa mare</h3>
               <p>
                 Pregătire blândă pentru școală, cu accent pe gândire critică, colaborare
                 și încredere în sine.
@@ -233,9 +233,9 @@ const Services = () => {
           <img src="/childrenpart/capsuna.png" alt="Căpșună" className="floating-element" style={{width: '60px', height: '60px', bottom: '10%', right: '8%'}} />
         </div>
         <div className="container text-center">
-          <h2 className="section-title">Zi gratuită de test</h2>
+          <h2 className="section-title">Începe cu o zi de adaptare</h2>
           <p style={{fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--gray-600)'}}>
-            Beneficiază de o zi gratuită de încercare pentru a cunoaște atmosfera Ringabell.
+            Începe cu o zi de adaptare și descoperă atmosfera Ringabell.
           </p>
           <Link to="/contact" className="btn btn-primary btn-large">
             Programează o vizită

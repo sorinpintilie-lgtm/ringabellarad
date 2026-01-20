@@ -1,10 +1,139 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/home.css';
 
 const Home = () => {
   // Sticky + scroll-in animations for "Educație / Joacă / Siguranță" cards
   const whyCardsRef = useRef([]);
+
+  // Team carousel refs and state
+  const teamScrollerRef = useRef(null);
+  const teamItemsRef = useRef([]);
+  const [currentTeamIndex, setCurrentTeamIndex] = useState(0);
+  const teamMembers = [
+    {
+      name: "Prof. Clep Diana",
+      role: "Educatoare",
+      tag: "Educatie",
+      avatar: "/childrenpart/fata.png"
+    },
+    {
+      name: "Prof. Dan Larisa",
+      role: "Educatoare",
+      tag: "Educatie",
+      avatar: "/childrenpart/fata.png"
+    },
+    {
+      name: "Prof. Gherle Atenais",
+      role: "Educatoare",
+      tag: "Educatie",
+      avatar: "/childrenpart/fata.png"
+    },
+    {
+      name: "Prof. Hrișcă Daniela",
+      role: "Educatoare",
+      tag: "Educatie",
+      avatar: "/childrenpart/fata.png"
+    },
+    {
+      name: "Prof. Șooș Daniela",
+      role: "Educatoare",
+      tag: "Educatie",
+      avatar: "/childrenpart/fata.png"
+    },
+    {
+      name: "Zharie Mădălina",
+      role: "Ajutor / Întreținere",
+      tag: "Întreținere",
+      avatar: "/childrenpart/fata.png"
+    },
+    {
+      name: "Prof. Calancea Foarea",
+      role: "Educatoare",
+      tag: "Educatie",
+      avatar: "/childrenpart/fata.png"
+    },
+    {
+      name: "Prof. Dolha Mariana",
+      role: "Educatoare",
+      tag: "Educatie",
+      avatar: "/childrenpart/fata.png"
+    },
+    {
+      name: "Prof. Izabela Opitz",
+      role: "Limba germană",
+      tag: "Limbi straine",
+      avatar: "/childrenpart/fata.png"
+    },
+    {
+      name: "Psiholog Anca Mureșan",
+      role: "Atelier Dezvoltare personală",
+      tag: "Psihologie",
+      avatar: "/childrenpart/fata.png"
+    },
+    {
+      name: "Prof. Gabriel Siminic",
+      role: "Educație fizică",
+      tag: "Sport",
+      avatar: "/childrenpart/baiat.png"
+    },
+    {
+      name: "Prof. Marcel Spâncu",
+      role: "Atelier de percuție",
+      tag: "Arta",
+      avatar: "/childrenpart/baiat.png"
+    },
+    {
+      name: "Prof. Ileana Szabo",
+      role: "Atelier arte plastice",
+      tag: "Arta",
+      avatar: "/childrenpart/fata.png"
+    },
+    {
+      name: "Carina Ianc",
+      role: "Logoped",
+      tag: "Logopedie",
+      avatar: "/childrenpart/fata.png"
+    }
+  ];
+
+  // Team carousel functions
+  const scrollToTeamItem = (index) => {
+    if (teamScrollerRef.current) {
+      const itemWidth = teamItemsRef.current[0]?.offsetWidth || 340;
+      const gap = 32; // 2rem in pixels
+      teamScrollerRef.current.scrollLeft = index * (itemWidth + gap);
+      setCurrentTeamIndex(index);
+    }
+  };
+
+  const nextTeamItem = () => {
+    const nextIndex = Math.min(currentTeamIndex + 1, 11); // Stop at index 11 (12th card)
+    scrollToTeamItem(nextIndex);
+  };
+
+  const prevTeamItem = () => {
+    const prevIndex = currentTeamIndex === 0 ? teamMembers.length - 1 : currentTeamIndex - 1;
+    scrollToTeamItem(prevIndex);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (teamScrollerRef.current) {
+        const scrollLeft = teamScrollerRef.current.scrollLeft;
+        const itemWidth = teamItemsRef.current[0]?.offsetWidth || 340;
+        const gap = 32;
+        const newIndex = Math.round(scrollLeft / (itemWidth + gap));
+        setCurrentTeamIndex(Math.min(Math.max(newIndex, 0), teamMembers.length - 1));
+      }
+    };
+
+    const scroller = teamScrollerRef.current;
+    if (scroller) {
+      scroller.addEventListener('scroll', handleScroll);
+      return () => scroller.removeEventListener('scroll', handleScroll);
+    }
+  }, [teamMembers.length]);
 
   useEffect(() => {
     const cards = whyCardsRef.current.filter(Boolean);
@@ -45,7 +174,7 @@ const Home = () => {
             <div className="home-hero-inner">
               <div className="home-hero-copy">
                 <h1 className="home-hero-title">
-                  Ringabell, locul unde copiii vin cu drag
+                  Acomodare blândă la întrarea in colectivitate
                 </h1>
 
                 <p className="home-hero-subtitle">
@@ -430,54 +559,55 @@ const Home = () => {
               </p>
             </header>
 
-            <div className="home-team-grid">
-              <article className="home-team-card">
-                <div className="home-team-avatar">
-                  <img
-                    src="/childrenpart/fata.png"
-                    alt="Prof. Ana Popescu"
-                  />
-                </div>
-                <h3 className="home-team-name">Prof. Ana Popescu</h3>
-                <p className="home-team-role">Director educațional</p>
-                <span className="home-team-tag">Pedagogie</span>
-              </article>
+            <div className="home-team-carousel">
+              <div className="home-team-scroller" ref={teamScrollerRef}>
+                {teamMembers.map((member, index) => (
+                  <article
+                    key={index}
+                    className="home-team-card"
+                    ref={(el) => (teamItemsRef.current[index] = el)}
+                  >
+                    <div className="home-team-avatar">
+                      <img
+                        src={member.avatar}
+                        alt={member.name}
+                      />
+                    </div>
+                    <h3 className="home-team-name">{member.name}</h3>
+                    <p className="home-team-role">{member.role}</p>
+                    <span className="home-team-tag">{member.tag}</span>
+                  </article>
+                ))}
+              </div>
 
-              <article className="home-team-card">
-                <div className="home-team-avatar">
-                  <img
-                    src="/childrenpart/baiat.png"
-                    alt="Prof. Mihai Ionescu"
-                  />
-                </div>
-                <h3 className="home-team-name">Prof. Mihai Ionescu</h3>
-                <p className="home-team-role">Psiholog copii</p>
-                <span className="home-team-tag">Dezvoltare</span>
-              </article>
+              <div className="home-team-navigation">
+                <button
+                  className="home-team-nav-btn home-team-prev"
+                  onClick={prevTeamItem}
+                  aria-label="Previous team member"
+                >
+                  ‹
+                </button>
 
-              <article className="home-team-card">
-                <div className="home-team-avatar">
-                  <img
-                    src="/childrenpart/copacel.png"
-                    alt="Prof. Elena Radu"
-                  />
+                <div className="home-team-dots">
+                  {teamMembers.slice(0, 12).map((_, index) => (
+                    <button
+                      key={index}
+                      className={`home-team-dot ${index === currentTeamIndex ? 'active' : ''}`}
+                      onClick={() => scrollToTeamItem(index)}
+                      aria-label={`Go to team member ${index + 1}`}
+                    />
+                  ))}
                 </div>
-                <h3 className="home-team-name">Prof. Elena Radu</h3>
-                <p className="home-team-role">Educatoare</p>
-                <span className="home-team-tag">Creativitate</span>
-              </article>
 
-              <article className="home-team-card">
-                <div className="home-team-avatar">
-                  <img
-                    src="/childrenpart/fluture.png"
-                    alt="Prof. Maria Georgescu"
-                  />
-                </div>
-                <h3 className="home-team-name">Prof. Maria Georgescu</h3>
-                <p className="home-team-role">Terapeut ocupațional</p>
-                <span className="home-team-tag">Motricitate</span>
-              </article>
+                <button
+                  className="home-team-nav-btn home-team-next"
+                  onClick={nextTeamItem}
+                  aria-label="Next team member"
+                >
+                  ›
+                </button>
+              </div>
             </div>
 
             <div className="home-team-notes">
@@ -624,15 +754,14 @@ const Home = () => {
 
               <article className="home-service-card">
                 <div className="home-service-icon" aria-hidden="true"></div>
-                <h3 className="home-service-title">After school cu liniște și joacă</h3>
+                <h3 className="home-service-title">Programe adaptate programului părinților</h3>
                 <p className="home-service-text">
-                  După ore, copiii își fac temele într-un ritm blând, apoi
-                  rămân la joacă, povești și activități creative.
+                  Alege varianta potrivită familiei tale — cu un program clar pentru copil și flexibilitate pentru tine.
                 </p>
                 <ul className="home-service-list">
-                  <li>Ajutor la teme și recapitulare ușoară</li>
-                  <li>Ateliere de lectură, jocuri de echipă</li>
-                  <li>Gustare și timp de relaxare după școală</li>
+                  <li>Program normal: până la 12:00</li>
+                  <li>Program prelungit: până la 13:00</li>
+                  <li>Program lung: până la 18:00</li>
                 </ul>
                 <div className="home-service-cta">
                   <Link
@@ -646,22 +775,21 @@ const Home = () => {
 
               <article className="home-service-card">
                 <div className="home-service-icon" aria-hidden="true"></div>
-                <h3 className="home-service-title">Petreceri & evenimente colorate</h3>
+                <h3 className="home-service-title">Mese calde incluse</h3>
                 <p className="home-service-text">
-                  Zile de naștere, seri tematice și întâlniri speciale pentru
-                  copii și părinți, într-un decor de poveste.
+                  În programele mai lungi, copiii au mese calde și pauze de masă liniștite, într-un ritm potrivit vârstei.
                 </p>
                 <ul className="home-service-list">
-                  <li>Petreceri personalizate pentru copii</li>
-                  <li>Teme jucăușe și decoruri colorate</li>
-                  <li>Activități ghidate de echipa Ringabell</li>
+                  <li>Program până la 13:00: prânz cald</li>
+                  <li>Program până la 18:00: prânz cald</li>
+                  <li>Meniu echilibrat, porții potrivite și adaptări la nevoi la cerere</li>
                 </ul>
                 <div className="home-service-cta">
                   <Link
                     to="/servicii"
                     className="home-button home-button--ghost home-button--small"
                   >
-                    Rezervă un eveniment
+                    Alege programul potrivit
                   </Link>
                 </div>
               </article>
@@ -751,7 +879,7 @@ const Home = () => {
               <div>
                 <h2 className="home-cta-title">Hai să ne cunoaștem mai bine</h2>
                 <p className="home-cta-text">
-                  Programăm o zi de probă pentru copilul tău, astfel încât să
+                  Programăm o zi de adaptare pentru copilul tău, astfel încât să
                   vedeți împreună cum arată o zi la Ringabell.
                 </p>
                 <div className="home-cta-actions">
