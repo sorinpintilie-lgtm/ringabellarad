@@ -154,7 +154,7 @@ const Services = () => {
             </div>
 
             <div className="age-item">
-              <span className="age-badge">3–4 ani</span>
+              <span className="age-badge">3–5 ani</span>
               <div>
                 <h3>Curiozitate și limbaj</h3>
                 <p>
@@ -165,7 +165,7 @@ const Services = () => {
             </div>
 
             <div className="age-item">
-              <span className="age-badge">4–6 ani</span>
+              <span className="age-badge">5–6 ani</span>
               <div>
                 <h3>Pregătire pentru școală</h3>
                 <p>
