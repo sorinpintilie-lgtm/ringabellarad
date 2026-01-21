@@ -10,34 +10,65 @@ const Gallery = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const galleryImages = [
-    { src: "/galerie/IMG_6268.jpg", thumbSrc: "/galerie/IMG_6268.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6272.jpg", thumbSrc: "/galerie/IMG_6272.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6277.jpg", thumbSrc: "/galerie/IMG_6277.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6282.jpg", thumbSrc: "/galerie/IMG_6282.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6283.jpg", thumbSrc: "/galerie/IMG_6283.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6284.jpg", thumbSrc: "/galerie/IMG_6284.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6287.jpg", thumbSrc: "/galerie/IMG_6287.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6289.jpg", thumbSrc: "/galerie/IMG_6289.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6291.jpg", thumbSrc: "/galerie/IMG_6291.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6301.jpg", thumbSrc: "/galerie/IMG_6301.jpg", alt: "Imagine din galerie", category: "Povești și joacă de rol" },
-    { src: "/galerie/IMG_6304.jpg", thumbSrc: "/galerie/IMG_6304.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6307.jpg", thumbSrc: "/galerie/IMG_6307.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6308.jpg", thumbSrc: "/galerie/IMG_6308.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6314.jpg", thumbSrc: "/galerie/IMG_6314.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6316.jpg", thumbSrc: "/galerie/IMG_6316.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6318.jpg", thumbSrc: "/galerie/IMG_6318.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6321.jpg", thumbSrc: "/galerie/IMG_6321.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6335.jpg", thumbSrc: "/galerie/IMG_6335.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6336.jpg", thumbSrc: "/galerie/IMG_6336.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6337.jpg", thumbSrc: "/galerie/IMG_6337.jpg", alt: "Imagine din galerie", category: "Ateliere de creație" },
-    { src: "/galerie/IMG_6344.jpg", thumbSrc: "/galerie/IMG_6344.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6347.jpg", thumbSrc: "/galerie/IMG_6347.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6362.jpg", thumbSrc: "/galerie/IMG_6362.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6364.jpg", thumbSrc: "/galerie/IMG_6364.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6382.jpg", thumbSrc: "/galerie/IMG_6382.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6384.jpg", thumbSrc: "/galerie/IMG_6384.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6387.jpg", thumbSrc: "/galerie/IMG_6387.jpg", alt: "Imagine din galerie", category: "Imagini noi" },
-    { src: "/galerie/IMG_6388.jpg", thumbSrc: "/galerie/IMG_6388.jpg", alt: "Imagine din galerie", category: "Imagini noi" }
+    { src: "/galerie/IMG_6268.jpg", thumbSrc: "/galerie/IMG_6268.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6272.jpg", thumbSrc: "/galerie/IMG_6272.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6277.jpg", thumbSrc: "/galerie/IMG_6277.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6282.jpg", thumbSrc: "/galerie/IMG_6282.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6283.jpg", thumbSrc: "/galerie/IMG_6283.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6284.jpg", thumbSrc: "/galerie/IMG_6284.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6287.jpg", thumbSrc: "/galerie/IMG_6287.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6289.jpg", thumbSrc: "/galerie/IMG_6289.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6291.jpg", thumbSrc: "/galerie/IMG_6291.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6301.jpg", thumbSrc: "/galerie/IMG_6301.jpg", alt: "Imagine din galerie", category: "Povești și joacă de rol", type: 'image' },
+    { src: "/galerie/IMG_6304.jpg", thumbSrc: "/galerie/IMG_6304.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6307.jpg", thumbSrc: "/galerie/IMG_6307.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6308.jpg", thumbSrc: "/galerie/IMG_6308.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6314.jpg", thumbSrc: "/galerie/IMG_6314.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6316.jpg", thumbSrc: "/galerie/IMG_6316.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6318.jpg", thumbSrc: "/galerie/IMG_6318.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6321.jpg", thumbSrc: "/galerie/IMG_6321.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6335.jpg", thumbSrc: "/galerie/IMG_6335.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6336.jpg", thumbSrc: "/galerie/IMG_6336.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6337.jpg", thumbSrc: "/galerie/IMG_6337.jpg", alt: "Imagine din galerie", category: "Ateliere de creație", type: 'image' },
+    { src: "/galerie/IMG_6344.jpg", thumbSrc: "/galerie/IMG_6344.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6347.jpg", thumbSrc: "/galerie/IMG_6347.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6362.jpg", thumbSrc: "/galerie/IMG_6362.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6364.jpg", thumbSrc: "/galerie/IMG_6364.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6382.jpg", thumbSrc: "/galerie/IMG_6382.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6384.jpg", thumbSrc: "/galerie/IMG_6384.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6387.jpg", thumbSrc: "/galerie/IMG_6387.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6388.jpg", thumbSrc: "/galerie/IMG_6388.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6294.jpg", thumbSrc: "/galerie/IMG_6294.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6310.jpg", thumbSrc: "/galerie/IMG_6310.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6311.jpg", thumbSrc: "/galerie/IMG_6311.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6363.jpg", thumbSrc: "/galerie/IMG_6363.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6365.jpg", thumbSrc: "/galerie/IMG_6365.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6371.jpg", thumbSrc: "/galerie/IMG_6371.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6378.jpg", thumbSrc: "/galerie/IMG_6378.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/IMG_6383.jpg", thumbSrc: "/galerie/IMG_6383.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/MVI_6066.00_00_00_00..jpg", thumbSrc: "/galerie/MVI_6066.00_00_00_00..jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/MVI_6066.00_00_00_22..jpg", thumbSrc: "/galerie/MVI_6066.00_00_00_22..jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/MVI_6066.00_00_00_48.Still007.jpg", thumbSrc: "/galerie/MVI_6066.00_00_00_48.Still007.jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/MVI_6066.00_00_01_21..jpg", thumbSrc: "/galerie/MVI_6066.00_00_01_21..jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/MVI_6066.00_00_02_23..jpg", thumbSrc: "/galerie/MVI_6066.00_00_02_23..jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/MVI_6066.00_00_04_34..jpg", thumbSrc: "/galerie/MVI_6066.00_00_04_34..jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/MVI_6066.00_00_08_16..jpg", thumbSrc: "/galerie/MVI_6066.00_00_08_16..jpg", alt: "Imagine din galerie", category: "Imagini noi", type: 'image' },
+    { src: "/galerie/MVI_6066.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140357.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_1.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140446.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_2.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140504.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_3.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140553.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_4.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140605.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_5.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140619.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_6.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140645.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_7.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140714.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_8.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140733.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_9.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140745.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_11.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140757.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_12.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140825.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_13.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140851.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_14.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140910.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    { src: "/galerie/MVI_6066_15.mp4", thumbSrc: "/galerie/Screenshot 2026-01-21 140924.png", alt: "Videoclip din galerie", category: "Videoclipuri", type: 'video' },
+    
   ];
 
   useEffect(() => {
@@ -247,6 +278,22 @@ const Gallery = () => {
                     transition: 'transform 0.3s ease'
                   }}
                 />
+                {image.type === 'video' && (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      fontSize: '48px',
+                      color: 'white',
+                      textShadow: '0 0 10px rgba(0,0,0,0.5)',
+                      pointerEvents: 'none'
+                    }}
+                  >
+                    ▶
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -344,16 +391,30 @@ const Gallery = () => {
               }}
             >
               {galleryImages.map((image, index) => (
-                <img
-                  key={index}
-                  src={image.src}
-                  alt={image.alt}
-                  style={{
-                    width: `${100 / galleryImages.length}%`,
-                    height: '100%',
-                    objectFit: 'contain'
-                  }}
-                />
+                image.type === 'video' ? (
+                  <video
+                    key={index}
+                    src={image.src}
+                    controls
+                    muted
+                    style={{
+                      width: `${100 / galleryImages.length}%`,
+                      height: '100%',
+                      objectFit: 'contain'
+                    }}
+                  />
+                ) : (
+                  <img
+                    key={index}
+                    src={image.src}
+                    alt={image.alt}
+                    style={{
+                      width: `${100 / galleryImages.length}%`,
+                      height: '100%',
+                      objectFit: 'contain'
+                    }}
+                  />
+                )
               ))}
             </div>
           </div>
