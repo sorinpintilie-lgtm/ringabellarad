@@ -1,6 +1,7 @@
 [build]
   command = "chmod +x node_modules/.bin/react-scripts && npm run build"
   publish = "build"
+  functions = "netlify/functions"
 
 [dev]
   command = "npm start"

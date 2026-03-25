@@ -513,7 +513,7 @@ const Home = () => {
 
                 <article className="home-activity-mini">
                   <img
-                    src="/galerie/IMG_6301.jpg"
+                    src="/galerie/IMG_6336.jpg"
                     alt="Povești și joacă de rol"
                     loading="lazy"
                   />

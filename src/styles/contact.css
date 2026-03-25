@@ -3,62 +3,262 @@
   background: var(--gray-50);
   color: var(--gray-800);
   min-height: 100vh;
-  overflow-x: hidden; /* prevent any horizontal overflow from absolute or blurred elements */
+  overflow-x: hidden;
 }
 
-.contact-shell {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
+/* Form section card wrapper improvements */
+.contact .contact-form {
+  width: 100%;
 }
 
-/* Generic section layout */
-.contact-section {
-  padding: 4rem 0;
+.contact .contact-form-card {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+  padding: 0;
 }
 
-/* Tighter vertical spacing for sections */
-.contact-section--tight {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+/* Form layout */
+.contact .form-group {
+  width: 100%;
 }
 
-.contact-section-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+.contact .grid.grid-2 {
+  gap: 1.25rem;
 }
 
-.contact-section--tight .contact-section-heading {
-  margin-bottom: 1.75rem;
-}
-
-.contact-section-kicker {
-  font-size: 0.9rem;
+.contact .contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--primary-blue);
+  color: var(--gray-700);
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
-.contact-section-title {
-  font-size: clamp(1.8rem, 3vw, 2.3rem);
-  font-weight: 700;
-  color: var(--gray-900);
-}
-
-.contact-section-note {
-  max-width: 360px;
+.contact .contact-form input[type="text"],
+.contact .contact-form input[type="email"],
+.contact .contact-form input[type="tel"],
+.contact .contact-form select,
+.contact .contact-form textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--gray-300);
+  border-radius: var(--radius-md);
   font-size: 0.95rem;
+  color: var(--gray-800);
+  background: #fff;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  outline: none;
+  appearance: none;
+}
+
+.contact .contact-form textarea {
+  resize: vertical;
+  min-height: 160px;
+  line-height: 1.6;
+}
+
+.contact .contact-form input::placeholder,
+.contact .contact-form textarea::placeholder {
+  color: var(--gray-500);
+}
+
+.contact .contact-form input:focus,
+.contact .contact-form select:focus,
+.contact .contact-form textarea:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+/* Form consent text */
+.contact .form-consent-text {
+  font-size: 0.8rem;
   color: var(--gray-600);
 }
 
-/* Rest of contact styles can be added here */
+.contact .form-consent-text a {
+  color: var(--primary-blue);
+  text-decoration: underline;
+}
 
+/* Form group full width */
+.contact .form-group-full {
+  margin-top: 1.5rem;
+}
+
+.contact .form-group-full.gdpr-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.contact .form-group-full.submit-group {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Contact form panel wrapper */
+.contact .contact-form-panel {
+  background: var(--gray-100);
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+}
+
+.contact .contact-form-panel h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-blue);
+  font-size: 1.5rem;
+}
+
+.contact .contact-form-panel > p {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--gray-600);
+  font-size: 1rem;
+}
+
+/* Form card inside contact form */
+.contact .contact-form-card {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+/* Form row spacing */
+.contact .form-row {
+  margin-top: 1.5rem;
+}
+
+/* Submit button - ensure full width */
+.contact .contact-form .btn.btn-primary {
+  width: 100%;
+  font-size: 1rem;
+}
+
+/* Form success message */
+.contact .form-success-message {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(34, 197, 94, 0.12);
+  color: #166534;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Form error message */
+.contact .form-error-message {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(239, 68, 68, 0.12);
+  color: #991b1b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.contact .contact-form input:hover,
+.contact .contact-form select:hover,
+.contact .contact-form textarea:hover {
+  border-color: var(--primary-blue);
+}
+
+/* Select arrow */
+.contact .contact-form select {
+  cursor: pointer;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--gray-500) 50%),
+    linear-gradient(135deg, var(--gray-500) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(50% - 3px),
+    calc(100% - 14px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 2.75rem;
+}
+
+/* Checkbox row */
+.contact .contact-form .form-group.form-group-full:last-of-type {
+  width: 100%;
+}
+
+.contact .contact-form input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+  accent-color: var(--primary-blue);
+  cursor: pointer;
+}
+
+.contact .contact-form .gdpr-text,
+.contact .contact-form .form-consent-text,
+.contact .contact-form span {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--gray-600);
+}
+
+.contact .contact-form a {
+  color: var(--primary-blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contact .contact-form a:hover {
+  opacity: 0.85;
+}
+
+/* Button */
+.contact .contact-form .btn {
+  min-height: 52px;
+  border-radius: var(--radius-md);
+}
+
+/* Info box below form */
+.contact .contact-form + div {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile */
 @media (max-width: 767px) {
-  .mobile-two-lines span {
-    display: block;
+  .contact .grid.grid-2 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
+
+  .contact .contact-form input[type="text"],
+  .contact .contact-form input[type="email"],
+  .contact .contact-form input[type="tel"],
+  .contact .contact-form select,
+  .contact .contact-form textarea {
+    font-size: 16px;
+  }
+}
+
+.contact .additional-info-grid .card {
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.contact .additional-info-grid .card ul,
+.contact .additional-info-grid .card p {
+  margin: 0;
+}
+
+.contact .additional-info-grid .card ul {
+  padding-left: 1.2rem;
+}
+
+.contact .additional-info-grid .card li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.contact .additional-info-grid .card a {
+  word-break: break-word;
 }

@@ -9,6 +9,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/servicii" element={<Services />} />
             <Route path="/galerie" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/politica-confidentialitate" element={<PrivacyPolicy />} />
           </Routes>
         </main>
         <Footer />
